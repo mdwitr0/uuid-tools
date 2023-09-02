@@ -1,7 +1,5 @@
-export default function Home() {
-  return (
-    <main >
-      <h1 >ffff</h1>
-    </main>
-  )
+import { v4 as uuidv4 } from 'uuid';
+
+export default function Page() {
+	return <>{uuidv4()}</>;
 }

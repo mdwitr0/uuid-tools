@@ -1,27 +1,42 @@
 {
-  "name": "uuid-tools",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@chakra-ui/next-js": "^2.1.5",
-    "@chakra-ui/react": "^2.8.0",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@types/node": "20.5.8",
-    "@types/react": "18.2.21",
-    "@types/react-dom": "18.2.7",
-    "eslint": "8.48.0",
-    "eslint-config-next": "13.4.19",
-    "framer-motion": "^10.16.2",
-    "next": "^13.4.19",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "5.2.2"
-  }
+	"name": "openmoviedb-admin",
+	"version": "1.0.0",
+	"author": "OpenMovieDB",
+	"lint-staged": {
+		"src/**/*.+(js|jsx|ts|tsx|json|md)": [
+			"npm run lint:fix"
+		]
+	},
+	"scripts": {
+		"dev": "next dev",
+		"start": "next start",
+		"build": "npm run partytown && next build",
+		"lint": "next lint",
+		"lint:fix": "eslint src --fix && npm run format",
+		"type-check": "tsc --noEmit",
+		"format": "prettier --write src",
+		"pre-commit": "npm run lint",
+		"postbuild": "next-sitemap --config next-sitemap.config.js"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.11.1",
+		"@emotion/server": "^11.11.0",
+		"@mantine/core": "^6.0.19",
+		"@mantine/hooks": "^6.0.19",
+		"@mantine/next": "^6.0.19",
+		"next": "^13.4.19",
+		"next-sitemap": "^4.2.2",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"stylis-plugin-rtl": "^2.1.1",
+		"uuid": "^9.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "20.5.8",
+		"@types/react": "18.2.21",
+		"@types/uuid": "^9.0.3",
+		"eslint": "^8.48.0",
+		"prettier": "^3.0.3",
+		"typescript": "5.2.2"
+	}
 }

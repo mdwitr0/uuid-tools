@@ -25,11 +25,24 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# pwa
+public/*.js
+public/*.map
+
+# sitemap
+public/robots.txt
+public/sitemap.xml
+public/sitemap-0.xml
+
+# partytown
+public/~partytown
+
+.env
