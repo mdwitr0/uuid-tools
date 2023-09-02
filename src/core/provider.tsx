@@ -1,13 +1,15 @@
 'use client';
 
-import { theme } from '@/core/theme';
 import { ColorScheme, ColorSchemeProvider, createEmotionCache, MantineProvider } from '@mantine/core';
-import { useLocalStorage } from '@mantine/hooks';
-import { useState } from 'react';
+import { ModalsProvider } from '@mantine/modals';
+import { Notifications } from '@mantine/notifications';
+import { useMediaQuery } from '@mantine/hooks';
+import { useEffect, useState } from 'react';
 import rtlPlugin from 'stylis-plugin-rtl';
 import RootStyleRegistry from './emotion';
+import { theme } from '@/core/theme';
 
-const THEME_KEY = 'uuid-tools';
+const THEME_KEY = 'uuidtools-theme';
 const rtlCache = createEmotionCache({
 	key: 'mantine-rtl',
 	prepend: true,
@@ -15,12 +17,17 @@ const rtlCache = createEmotionCache({
 });
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-	const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
-		key: THEME_KEY,
-		defaultValue: 'dark',
-		getInitialValueInEffect: true,
-	});
 	const [dir, setDir] = useState<'rtl' | 'ltr'>('ltr');
+
+	const preferredColorScheme = useMediaQuery('(prefers-color-scheme: dark)');
+	const [colorScheme, setColorScheme] = useState<ColorScheme>(preferredColorScheme ? 'dark' : 'light');
+	useEffect(() => {
+		if (preferredColorScheme) {
+			setColorScheme('dark');
+		} else {
+			setColorScheme('light');
+		}
+	}, [preferredColorScheme]);
 
 	const toggleColorScheme = (value?: ColorScheme) => setColorScheme(value || (colorScheme === 'dark' ? 'dark' : 'light'));
 
@@ -33,13 +40,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 	return (
 		<RootStyleRegistry>
 			<ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-				<MantineProvider
-					withGlobalStyles
-					withNormalizeCSS
-					emotionCache={dir === 'rtl' ? rtlCache : undefined}
-					theme={{ ...theme, colorScheme, dir }}
-				>
-					{children}
+				<MantineProvider withGlobalStyles withNormalizeCSS theme={{ ...theme, colorScheme, dir }}>
+					<ModalsProvider>{children}</ModalsProvider>
+					<Notifications />
 				</MantineProvider>
 			</ColorSchemeProvider>
 		</RootStyleRegistry>
