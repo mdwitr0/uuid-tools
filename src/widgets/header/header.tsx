@@ -1,6 +1,6 @@
 'use client';
 
-import { Burger, Container, createStyles, Group, Header, rem } from '@mantine/core';
+import { Burger, Container, createStyles, Drawer, Group, Header, rem } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { uuidList, UUIDVersion } from '@/shared/uuid';
 import Link from 'next/link';
@@ -65,6 +65,11 @@ const useStyles = createStyles(theme => ({
 			color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
 		},
 	},
+	hiddenDesktop: {
+		[theme.fn.largerThan('sm')]: {
+			display: 'none',
+		},
+	},
 }));
 
 type HeaderMiddleProps = {
@@ -73,7 +78,7 @@ type HeaderMiddleProps = {
 export function HeaderMiddle({ version }: HeaderMiddleProps) {
 	const links = uuidList.map(link => ({ link: '/' + link, label: link }));
 
-	const [opened, { toggle }] = useDisclosure(false);
+	const [opened, { close, open, toggle }] = useDisclosure(false);
 
 	const { classes, cx } = useStyles();
 
@@ -86,7 +91,10 @@ export function HeaderMiddle({ version }: HeaderMiddleProps) {
 	return (
 		<Header height={56}>
 			<Container className={classes.inner}>
-				<Burger opened={opened} onClick={toggle} size="sm" className={classes.burger} />
+				<Burger opened={opened} onClick={open} size="sm" className={classes.burger} />
+				<Drawer opened={opened} onClose={close} size="100%" padding="md" title="Меню" className={classes.hiddenDesktop} zIndex={1000000}>
+					{pages}
+				</Drawer>
 				<Group className={classes.links} spacing={5}>
 					{pages}
 				</Group>
