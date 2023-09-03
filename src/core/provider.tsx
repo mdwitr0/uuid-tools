@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import rtlPlugin from 'stylis-plugin-rtl';
 import RootStyleRegistry from './emotion';
 import { theme } from '@/core/theme';
+import { YMInitializer } from 'react-yandex-metrika';
+import TagManager from 'react-gtm-module';
 
 const THEME_KEY = 'uuidtools-theme';
 const rtlCache = createEmotionCache({
@@ -15,6 +17,12 @@ const rtlCache = createEmotionCache({
 	prepend: true,
 	stylisPlugins: [rtlPlugin],
 });
+
+const tagManagerArgs = {
+	gtmId: 'G-HSC19WJ67H',
+};
+
+TagManager.initialize(tagManagerArgs);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
 	const [dir, setDir] = useState<'rtl' | 'ltr'>('ltr');
@@ -41,7 +49,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 		<RootStyleRegistry>
 			<ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
 				<MantineProvider withGlobalStyles withNormalizeCSS theme={{ ...theme, colorScheme, dir }}>
-					<ModalsProvider>{children}</ModalsProvider>
+					<ModalsProvider>
+						<YMInitializer
+							accounts={[94820522]}
+							options={{ clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true }}
+							version="2"
+						/>
+						{children}
+					</ModalsProvider>
 					<Notifications />
 				</MantineProvider>
 			</ColorSchemeProvider>
