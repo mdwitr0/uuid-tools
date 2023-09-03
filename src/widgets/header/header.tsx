@@ -1,11 +1,11 @@
 'use client';
 
-import { ActionIcon, Burger, Container, createStyles, Group, Header, rem } from '@mantine/core';
+import { Burger, Container, createStyles, Group, Header, rem } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { uuidList, UUIDVersion } from '@/shared/uuid';
 import Link from 'next/link';
-import { SOCIALS } from '@/core/configs';
 import Logo from '@/features/logo/logo';
+import { ColorSchemeToggle } from '@/features/color-scheme-toogle/color-scheme-toggle';
 
 const useStyles = createStyles(theme => ({
 	inner: {
@@ -83,12 +83,6 @@ export function HeaderMiddle({ version }: HeaderMiddleProps) {
 		</Link>
 	));
 
-	const socials = SOCIALS.map(social => (
-		<ActionIcon size="lg" component="a" key={social.label} href={social.link} target="_blank">
-			<social.icon size="1.1rem" stroke={1.5} target="_blank"></social.icon>
-		</ActionIcon>
-	));
-
 	return (
 		<Header height={56}>
 			<Container className={classes.inner}>
@@ -100,7 +94,7 @@ export function HeaderMiddle({ version }: HeaderMiddleProps) {
 				<Logo></Logo>
 
 				<Group spacing={0} className={classes.social} position="right" noWrap>
-					{socials}
+					<ColorSchemeToggle />
 				</Group>
 			</Container>
 		</Header>

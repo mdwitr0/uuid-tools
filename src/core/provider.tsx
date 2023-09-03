@@ -29,7 +29,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 		}
 	}, [preferredColorScheme]);
 
-	const toggleColorScheme = (value?: ColorScheme) => setColorScheme(value || (colorScheme === 'dark' ? 'dark' : 'light'));
+	const toggleColorScheme = (value?: ColorScheme) => setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
 	const toggleDir = () => {
 		const nextDir = dir === 'ltr' ? 'rtl' : 'ltr';

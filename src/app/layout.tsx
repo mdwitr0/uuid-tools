@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 	title: { default: 'Онлайн UUID генератор, всех версий: v1, v3, v4, v5', template: '%s | UUID tools' },
 	description: 'Генератор UUID',
 
-	manifest: '/manifest.json',
+	manifest: '/site.webmanifest',
 	icons: [
 		{
 			url: '/android-chrome-192x192.png',

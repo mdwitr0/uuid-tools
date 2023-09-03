@@ -6,12 +6,6 @@ import Logo from '@/features/logo/logo';
 
 const useStyles = createStyles(theme => ({
 	footer: {
-		position: 'fixed',
-		left: 0,
-		right: 0,
-		bottom: 0,
-		zIndex: 10,
-		marginTop: rem(120),
 		paddingTop: `calc(${theme.spacing.xl} * 2)`,
 		paddingBottom: `calc(${theme.spacing.xl} * 2)`,
 		backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
