@@ -137,7 +137,7 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 				onChange={event => setNamespace(event.currentTarget.value)}
 			/>
 			<Text size="sm" py="sm">
-				Для корректной генерации UUID 3 и 5 версий введите ваш namespace
+				Для корректной генерации UUID 3 и 5 версий введите namespace
 			</Text>
 		</Container>
 	);
@@ -149,8 +149,8 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 			</Title>
 			<Group align="center" position="center" py="xl">
 				<NumberInput
-					placeholder="Введите количество UUID"
-					label="Количество UUID"
+					placeholder="Введите количество"
+					label="Количество"
 					min={1}
 					max={1000}
 					defaultValue={size}
@@ -171,7 +171,7 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 		<main className={classes.main}>
 			<Container size="xl" py="xl">
 				<Title order={1} className={classes.title} ta="center">
-					Онлайн генератор UUID {version == 'empty' ? 'заглушки' : version}
+					Онлайн генератор уникального UUID {version == 'empty' ? 'заглушки' : version}
 				</Title>
 
 				<Card shadow="md" radius="md" className={classes.card} padding="xl" mb="xl">

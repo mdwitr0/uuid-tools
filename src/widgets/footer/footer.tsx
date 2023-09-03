@@ -15,7 +15,9 @@ const useStyles = createStyles(theme => ({
 	logo: {
 		maxWidth: rem(200),
 		marginRight: rem(40),
-
+		[theme.fn.smallerThan('sm')]: {
+			marginRight: 0,
+		},
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
