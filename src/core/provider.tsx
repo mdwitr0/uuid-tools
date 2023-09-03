@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import rtlPlugin from 'stylis-plugin-rtl';
 import RootStyleRegistry from './emotion';
 import { theme } from '@/core/theme';
+import { YMInitializer } from 'react-yandex-metrika';
 
 const THEME_KEY = 'uuidtools-theme';
 const rtlCache = createEmotionCache({
@@ -41,6 +42,15 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 		<RootStyleRegistry>
 			<ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
 				<MantineProvider withGlobalStyles withNormalizeCSS theme={{ ...theme, colorScheme, dir }}>
+					<YMInitializer
+						accounts={[94820522]}
+						options={{
+							clickmap: true,
+							trackLinks: true,
+							accurateTrackBounce: true,
+							webvisor: true,
+						}}
+					/>
 					<ModalsProvider>{children}</ModalsProvider>
 					<Notifications />
 				</MantineProvider>
