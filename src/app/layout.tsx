@@ -1,6 +1,7 @@
 import { AppProvider } from '@/core/provider';
 import { DOMAIN } from '@/core/configs';
 import { Metadata } from 'next';
+import { YMInitializer } from 'react-yandex-metrika';
 
 export const metadata: Metadata = {
 	metadataBase: new URL(DOMAIN),
@@ -41,6 +42,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en-US">
 			<body>
+				<YMInitializer
+					accounts={[94820522]}
+					options={{
+						clickmap: true,
+						trackLinks: true,
+						accurateTrackBounce: true,
+						webvisor: true,
+					}}
+				/>
 				<AppProvider>{children}</AppProvider>
 			</body>
 		</html>
