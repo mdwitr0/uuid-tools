@@ -3,7 +3,7 @@
 import { Button, Card, Container, createStyles, Group, JsonInput, NumberInput, rem, Text, TextInput, Title } from '@mantine/core';
 import { IconCopy, IconRefresh } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
-import { generateUuidByVersion, UUIDVersion } from '@/shared/uuid';
+import { generateUuidByVersion, UUIDVersion } from '@/shared/libs/uuid/uuid';
 import { DEFAULT_UUID_NAMESPACE } from '@/core/configs';
 
 const useStyles = createStyles(theme => ({

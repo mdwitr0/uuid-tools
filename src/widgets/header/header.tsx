@@ -2,7 +2,7 @@
 
 import { Burger, Container, createStyles, Drawer, Group, Header, rem } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { uuidList, UUIDVersion } from '@/shared/uuid';
+import { uuidList, UUIDVersion } from '@/shared/libs/uuid/uuid';
 import Link from 'next/link';
 import Logo from '@/features/logo/logo';
 import { ColorSchemeToggle } from '@/features/color-scheme-toogle/color-scheme-toggle';
