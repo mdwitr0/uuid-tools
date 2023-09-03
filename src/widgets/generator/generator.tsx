@@ -61,6 +61,11 @@ const useStyles = createStyles(theme => ({
 		fontWeight: 600,
 		marginBottom: theme.spacing.xl,
 		textAlign: 'center',
+		wordBreak: 'break-all',
+
+		[theme.fn.smallerThan('sm')]: {
+			fontSize: rem(18),
+		},
 	},
 
 	input: {
