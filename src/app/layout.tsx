@@ -35,6 +35,9 @@ export const metadata: Metadata = {
 		},
 	],
 	colorScheme: 'dark',
+	other: {
+		'yandex-verification': 'd06641279e204bb8',
+	},
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
