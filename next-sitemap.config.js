@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const NextSitemapConfig = {
-	siteUrl: 'https://dev-admin.openmoviedb.com/',
+	siteUrl: 'https://uuid.tools/',
 	generateRobotsTxt: true,
 };
 
