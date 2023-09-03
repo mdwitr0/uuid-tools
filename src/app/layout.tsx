@@ -1,6 +1,7 @@
 import { AppProvider } from '@/core/provider';
 import { DOMAIN } from '@/core/configs';
 import { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
 	metadataBase: new URL(DOMAIN),
@@ -44,7 +45,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en-US">
 			<body>
-				<AppProvider>{children}</AppProvider>
+				<AppProvider>
+					{children}
+					<Analytics />
+				</AppProvider>
 			</body>
 		</html>
 	);
