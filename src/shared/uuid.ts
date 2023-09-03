@@ -17,7 +17,7 @@ export const generateUuidByVersion = (version: UUIDVersion, namespace: string): 
 	}
 };
 
-export const uuidList: UUIDVersion[] = ['v1', 'v3', 'v4', 'v5', 'empty'];
+export const uuidList: UUIDVersion[] = ['v4', 'v1', 'v3', 'v5', 'empty'];
 
 export const validateVersion = (version: UUIDVersion): boolean => {
 	return uuidList.includes(version);

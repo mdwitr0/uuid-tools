@@ -39,6 +39,20 @@ export const metadata: Metadata = {
 	other: {
 		'yandex-verification': '65c33071e3b34e31',
 	},
+	openGraph: {
+		type: 'website',
+		locale: 'ru_RU',
+		url: DOMAIN,
+		title: 'Онлайн генератор уникальных UUID',
+		description: 'Мгновенная генерация UUID версий: v1, v3, v4, v5',
+		images: [
+			{
+				url: '/social.png',
+				width: 1200,
+				height: 630,
+			},
+		],
+	},
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
