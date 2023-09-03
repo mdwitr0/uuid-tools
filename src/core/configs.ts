@@ -12,3 +12,5 @@ export const SOCIALS = [
 		alt: 'GitHub',
 	},
 ];
+
+export const YANDEX_METRIKA_ID = 94820522;

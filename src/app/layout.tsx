@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 	],
 	colorScheme: 'dark',
 	other: {
-		'yandex-verification': 'd06641279e204bb8',
+		'yandex-verification': '65c33071e3b34e31',
 	},
 };
 
