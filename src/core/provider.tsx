@@ -9,6 +9,7 @@ import rtlPlugin from 'stylis-plugin-rtl';
 import RootStyleRegistry from './emotion';
 import { theme } from '@/core/theme';
 import WithYandexMetrika from '@/core/providers/with-yandex-metrika';
+import { Analytics } from '@vercel/analytics/react';
 
 const THEME_KEY = 'uuidtools-theme';
 const rtlCache = createEmotionCache({
@@ -44,6 +45,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 				<ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
 					<MantineProvider withGlobalStyles withNormalizeCSS theme={{ ...theme, colorScheme, dir }}>
 						<ModalsProvider>{children}</ModalsProvider>
+						<Analytics />
 						<Notifications />
 					</MantineProvider>
 				</ColorSchemeProvider>
