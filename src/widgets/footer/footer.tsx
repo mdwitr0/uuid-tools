@@ -2,6 +2,7 @@
 
 import { ActionIcon, Container, createStyles, rem, Text } from '@mantine/core';
 import { SOCIALS } from '@/core/configs';
+import Logo from '@/features/logo/logo';
 
 const useStyles = createStyles(theme => ({
 	footer: {
@@ -21,11 +22,10 @@ const useStyles = createStyles(theme => ({
 		maxWidth: rem(200),
 		marginRight: rem(40),
 
-		[theme.fn.smallerThan('sm')]: {
-			display: 'flex',
-			flexDirection: 'column',
-			alignItems: 'center',
-		},
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 
 	description: {
@@ -112,7 +112,7 @@ export function FooterMiddle() {
 		<footer className={classes.footer}>
 			<Container className={classes.inner}>
 				<div className={classes.logo}>
-					<>LOGO</>
+					<Logo />
 				</div>
 				<Text size="xs" color="dimmed" className={classes.description}>
 					Наш сервис не дает гарантий, что представленный UUID является уникальным и не был использован ранее. Мы не несем ответственности

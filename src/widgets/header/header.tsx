@@ -5,6 +5,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { uuidList, UUIDVersion } from '@/shared/uuid';
 import Link from 'next/link';
 import { SOCIALS } from '@/core/configs';
+import Logo from '@/features/logo/logo';
 
 const useStyles = createStyles(theme => ({
 	inner: {
@@ -96,7 +97,7 @@ export function HeaderMiddle({ version }: HeaderMiddleProps) {
 					{pages}
 				</Group>
 
-				<>LOGO</>
+				<Logo></Logo>
 
 				<Group spacing={0} className={classes.social} position="right" noWrap>
 					{socials}
