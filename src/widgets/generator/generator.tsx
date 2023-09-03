@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Card, Container, createStyles, Group, rem, Text, TextInput, Title } from '@mantine/core';
+import { Button, Card, Container, createStyles, Group, JsonInput, NumberInput, rem, Text, TextInput, Title } from '@mantine/core';
 import { IconCopy, IconRefresh } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import { generateUuidByVersion, UUIDVersion } from '@/shared/uuid';
@@ -10,7 +10,7 @@ const useStyles = createStyles(theme => ({
 	main: {
 		paddingTop: rem(120),
 
-		height: '90vh',
+		minHeight: '83vh',
 		backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
 	},
 
@@ -68,6 +68,12 @@ const useStyles = createStyles(theme => ({
 		paddingTop: rem(18),
 	},
 
+	textarea: {
+		height: rem(200),
+		paddingTop: rem(18),
+		fontSize: theme.fontSizes.xs,
+	},
+
 	label: {
 		position: 'absolute',
 		pointerEvents: 'none',
@@ -91,6 +97,10 @@ type GeneratorProps = {
 export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 	const { classes, theme } = useStyles();
 	const [uuid, setUUID] = useState<string>(startUuid);
+
+	const [size, setSize] = useState<number>(1);
+	const [uuidList, setUUIDList] = useState<string[]>([]);
+
 	const [namespace, setNamespace] = useState<string>(DEFAULT_UUID_NAMESPACE);
 	const copyUUIDtoClipboard = async () => {
 		try {
@@ -102,6 +112,10 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 
 	const newUUID = () => {
 		setUUID(generateUuidByVersion(version, namespace));
+	};
+
+	const newUUIDList = () => {
+		setUUIDList(Array.from({ length: size }, () => generateUuidByVersion(version, namespace)));
 	};
 
 	useEffect(() => {
@@ -123,6 +137,31 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 		</Container>
 	);
 
+	const listGenerator = (
+		<Card shadow="md" radius="md" className={classes.card} padding="xl">
+			<Title order={2} ta="center">
+				Генерация списка UUID {version}
+			</Title>
+			<Group align="center" position="center" py="xl">
+				<NumberInput
+					placeholder="Введите количество UUID"
+					label="Количество UUID"
+					min={1}
+					max={1000}
+					defaultValue={size}
+					classNames={classes}
+					onChange={value => setSize(value || 1)}
+				/>
+				<Button leftIcon={<IconRefresh />} onClick={newUUIDList}>
+					Сгенерировать
+				</Button>
+			</Group>
+			<Container py="xl" className={classes.inputWrapper}>
+				<JsonInput label="Ваш список UUID" formatOnBlur autosize minRows={4} value={JSON.stringify(uuidList, null, 2)} />
+			</Container>
+		</Card>
+	);
+
 	return (
 		<main className={classes.main}>
 			<Container size="xl" py="xl">
@@ -130,7 +169,7 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 					Онлайн генератор UUID {version == 'empty' ? 'заглушки' : version}
 				</Title>
 
-				<Card shadow="md" radius="md" className={classes.card} padding="xl">
+				<Card shadow="md" radius="md" className={classes.card} padding="xl" mb="xl">
 					<Text className={classes.uuid}>{uuid}</Text>
 					<Group align="center" position="center">
 						<Button leftIcon={<IconCopy />} onClick={copyUUIDtoClipboard}>
@@ -144,6 +183,8 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 
 					{version === 'v3' || version === 'v5' ? namespaceForm : null}
 				</Card>
+
+				{version === 'v1' || version === 'v4' ? listGenerator : null}
 			</Container>
 		</main>
 	);
