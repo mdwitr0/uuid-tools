@@ -3,6 +3,7 @@
 import { ActionIcon, Container, createStyles, rem, Text } from '@mantine/core';
 import { SOCIALS } from '@/core/configs';
 import Logo from '@/features/logo/logo';
+import { useTranslations } from 'use-intl';
 
 const useStyles = createStyles(theme => ({
 	footer: {
@@ -97,6 +98,7 @@ const useStyles = createStyles(theme => ({
 
 export function FooterMiddle() {
 	const { classes } = useStyles();
+	const t = useTranslations('footer');
 
 	const socials = SOCIALS.map(social => (
 		<ActionIcon size="lg" component="a" key={social.label} href={social.link} target="_blank">
@@ -111,13 +113,12 @@ export function FooterMiddle() {
 					<Logo />
 				</div>
 				<Text size="xs" color="dimmed" className={classes.description}>
-					Наш сервис не дает гарантий, что представленный UUID является уникальным и не был использован ранее. Мы не несем ответственности
-					за любые убытки, прямые или косвенные, связанные с использованием нашего сервиса.
+					{t('disclaimer')}
 				</Text>
 			</Container>
 			<Container className={classes.afterFooter}>
 				<Text color="dimmed" size="sm">
-					© {new Date().getFullYear()} <b>uuid.tools</b> — сервис для генерации UUID
+					{t('copyTemplate').replace('%s', `${new Date().getFullYear()} uuid.tools`)}
 				</Text>
 
 				{socials}
