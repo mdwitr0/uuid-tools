@@ -3,21 +3,15 @@ import { FooterMiddle } from '@/widgets/footer/footer';
 import { Generator } from '@/widgets/generator/generator';
 import { generateUuidByVersion } from '@/shared/libs/uuid/uuid';
 import { DEFAULT_UUID_NAMESPACE, DEFAULT_UUID_VERSION } from '@/core/configs';
+import { getMetadataByLocaleAndVersion } from '@/core/metadata';
 import { Metadata } from 'next';
-import { getTranslationJson } from '@/shared/libs/i18b/get-translation-json';
 
 type PageProps = {
 	params: { locale: string };
 };
 
-export async function generateMetadata({ params: { locale } }: PageProps): Promise<Metadata> {
-	const messages = await getTranslationJson(locale, ['common']);
-
-	return {
-		title: messages['common']['title'],
-		description: messages['common']['description'],
-		keywords: messages['common']['keywords'],
-	};
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+	return getMetadataByLocaleAndVersion(params);
 }
 export default function Page() {
 	return (

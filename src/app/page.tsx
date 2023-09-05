@@ -4,6 +4,12 @@ import { Generator } from '@/widgets/generator/generator';
 import { generateUuidByVersion } from '@/shared/libs/uuid/uuid';
 import { DEFAULT_UUID_NAMESPACE, DEFAULT_UUID_VERSION } from '@/core/configs';
 
+type PageProps = {
+	params: { locale: string };
+};
+// export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+// 	return getMetadataByLocaleAndVersion(params);
+// }
 export default function Page() {
 	return (
 		<>
