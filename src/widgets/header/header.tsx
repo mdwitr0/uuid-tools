@@ -1,6 +1,6 @@
 'use client';
 
-import { Burger, Container, createStyles, Drawer, Group, Header, rem } from '@mantine/core';
+import { Box, Burger, Container, createStyles, Drawer, Group, Header, rem } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { uuidList, UUIDVersion } from '@/shared/libs/uuid/uuid';
 import Link from 'next/link';
@@ -26,6 +26,11 @@ const useStyles = createStyles(theme => ({
 		},
 	},
 
+	locales: {
+		border: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]}`,
+		display: 'flex',
+		borderRadius: theme.radius.sm,
+	},
 	social: {
 		width: rem(260),
 
@@ -73,8 +78,9 @@ const useStyles = createStyles(theme => ({
 
 type HeaderMiddleProps = {
 	version: UUIDVersion;
+	locale: string;
 };
-export function HeaderMiddle({ version }: HeaderMiddleProps) {
+export function HeaderMiddle({ version, locale }: HeaderMiddleProps) {
 	const linksTranslate = useTranslations('links');
 	const headerTranslate = useTranslations('header');
 
@@ -94,6 +100,17 @@ export function HeaderMiddle({ version }: HeaderMiddleProps) {
 			{linksTranslate(`${id}:label`)}
 		</Link>
 	));
+
+	const locales = (
+		<Box className={classes.locales}>
+			<Link href="/en" lang="en" className={cx(classes.link, { [classes.linkActive]: locale === 'en' })}>
+				EN
+			</Link>
+			<Link href="/ru" lang="ru" className={cx(classes.link, { [classes.linkActive]: locale === 'ru' })}>
+				RU
+			</Link>
+		</Box>
+	);
 
 	return (
 		<Header height={56}>
@@ -116,8 +133,11 @@ export function HeaderMiddle({ version }: HeaderMiddleProps) {
 
 				<Logo></Logo>
 
-				<Group spacing={0} className={classes.social} position="right" noWrap>
-					<ColorSchemeToggle />
+				<Group spacing={5} className={classes.social} position="right" noWrap>
+					<Group spacing={5} className={classes.social} position="left" noWrap>
+						{locales}
+						<ColorSchemeToggle />
+					</Group>
 				</Group>
 			</Container>
 		</Header>

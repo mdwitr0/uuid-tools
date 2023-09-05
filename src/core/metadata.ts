@@ -59,6 +59,7 @@ export const defaultMetadata: Metadata = {
 		canonical: `/`,
 		languages: {
 			ru: `/ru`,
+			'x-default': '/',
 		},
 	},
 };
@@ -83,6 +84,7 @@ export async function getMetadataByLocaleAndVersion({ locale, version }: { local
 				canonical: `/`,
 				languages: {
 					ru: `/ru`,
+					'x-default': '/',
 				},
 			},
 		};
@@ -105,6 +107,7 @@ export async function getMetadataByLocaleAndVersion({ locale, version }: { local
 			canonical: `/version/${version}`,
 			languages: {
 				ru: `/ru/version/${version}`,
+				'x-default': `/version/${version}`,
 			},
 		},
 	};

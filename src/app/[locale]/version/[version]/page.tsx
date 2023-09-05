@@ -19,7 +19,7 @@ export default function Page({ params }: PageProps) {
 
 	return (
 		<>
-			<HeaderMiddle version={params.version} />
+			<HeaderMiddle version={params.version} locale={params.locale} />
 			<Generator uuid={generateUuidByVersion(params.version, DEFAULT_UUID_NAMESPACE)} version={params.version} />
 			<FooterMiddle />
 		</>

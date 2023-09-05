@@ -1,15 +1,31 @@
+import clsx from 'clsx';
+import { Inter } from 'next/font/google';
+import { NextIntlClientProvider } from 'next-intl';
+import { ReactNode } from 'react';
 import { AppProvider } from '@/core/provider';
-import WithIntl from '@/core/providers/with-intl';
+import { LOCALES } from '@/core/configs';
+import { getTranslationJson } from '@/shared/libs/i18b/get-translation-json';
 
-type Props = { children: React.ReactNode; params: { locale: string } };
+const inter = Inter({ subsets: ['latin'] });
 
-export default function RootLayout({ children, params: { locale } }: Props) {
+type Props = {
+	children: ReactNode;
+	params: { locale: string };
+};
+
+export async function generateStaticParams() {
+	return LOCALES.map(locale => ({ locale }));
+}
+
+export default async function LocaleLayout({ children, params: { locale } }: Props) {
+	const messages = await getTranslationJson(locale);
+
 	return (
 		<html lang={locale}>
-			<body>
-				<WithIntl locale={locale}>
+			<body className={clsx(inter.className)}>
+				<NextIntlClientProvider locale={locale} messages={messages}>
 					<AppProvider>{children}</AppProvider>
-				</WithIntl>
+				</NextIntlClientProvider>
 			</body>
 		</html>
 	);
