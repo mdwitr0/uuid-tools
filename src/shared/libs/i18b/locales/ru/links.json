@@ -1,0 +1,20 @@
+{
+  "home:label": "Главная",
+  "home:title": "Главная страница UUID.TOOLS",
+  "home:href": "/ru",
+  "v4:label": "V4",
+  "v4:title": "Генератор UUID версии 4",
+  "v4:href": "/ru/version/v4",
+  "v5:label": "V5",
+  "v5:href": "/ru/version/v5",
+  "v5:title": "Генератор UUID версии 5",
+  "v3:label": "V3",
+  "v3:title": "Генератор UUID версии 3",
+  "v3:href": "/ru/version/v3",
+  "v1:label": "V1",
+  "v1:title": "Генератор UUID версии 1",
+  "v1:href": "/ru/version/v1",
+  "empty:label": "Nil/Empty",
+  "empty:title": "Генератор Nil/Empty UUID",
+  "empty:href": "/ru/version/empty"
+}
