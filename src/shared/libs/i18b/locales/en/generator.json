@@ -1,17 +1,11 @@
 {
-  "home": {
-    "title": "Онлайн генератор уникального UUID"
-  },
-  "v4": {
-    "title": "Онлайн генератор UUID 4й версии"
-  },
-  "v5": {
-    "title": "Онлайн генератор UUID 5й версии"
-  },
-  "v3": {
-    "title": "Онлайн генератор UUID 3й версии"
-  },
-  "v1": {
-    "title": "Онлайн генератор UUID 1й версии"
-  }
+    "home:title": "Online UUID generator",
+    "v4:title": "Online UUID generator v4",
+    "v5:title": "Online UUID generator v5",
+    "v5:desc": "Version 5 UUIDs are pseudo-random.",
+    "v3:title": "Online UUID generator v3",
+    "v1:title": "Online UUID generator v1",
+    "empty:title": "Nil/Empty UUID",
+    "empty:desc": "Nil/Empty UUID is a special form of UUID that is specified to have all 128 bits set to zero.",
+    "input:label": "UUID list"
 }

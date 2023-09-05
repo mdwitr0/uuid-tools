@@ -1,14 +1,12 @@
 {
   "title": "Online UUID Generator",
-    "titleTemplate": "Online UUID Generator version %s",
-    "description": "Service for creating one or more UUID 1,3,4,5 version",
-    "descriptionTemplate": "Service for creating one or more UUID %s version",
-    "keywords": "uuid, uuid generator, online uuid generator, uuid generator, uuid online, uuid v1, uuid v3, uuid v4, uuid v5",
-    "keywordsTemplate": "uuid generator %s, online uuid generator %s, uuid %s",
-    "og": {
-    "title": "Online UUID Generator",
-      "titleTemplate": "Online UUID Generator version %s",
-      "description": "Service for creating one or more UUID 1,3,4,5 version",
-      "descriptionTemplate": "Service for creating one or more UUID %s version"
-    }
+  "titleTemplate": "Online UUID Generator version %s",
+  "description": "Service for creating one or more UUID 1,3,4,5 version",
+  "descriptionTemplate": "Service for creating one or more UUID %s version",
+  "keywords": "uuid, uuid generator, online uuid generator, uuid generator, uuid online, uuid v1, uuid v3, uuid v4, uuid v5",
+  "keywordsTemplate": "uuid generator %s, online uuid generator %s, uuid %s",
+  "og:title": "Online UUID Generator",
+  "og:titleTemplate": "Online UUID Generator version %s",
+  "og:description": "Service for creating one or more UUID 1,3,4,5 version",
+  "og:descriptionTemplate": "Service for creating one or more UUID %s version"
 }

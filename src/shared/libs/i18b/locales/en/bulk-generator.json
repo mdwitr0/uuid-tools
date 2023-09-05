@@ -1,22 +1,15 @@
 {
-  "home": {
-    "title": "Генерация списка UUID",
-    "label": "Результат"
-  },
-  "v4": {
-    "title": "Генерация списка UUID 4й версии",
-    "label":  "Результат"
-  },
-  "v5": {
-    "title": "Генерация списка UUID 5й версии",
-    "label":  "Результат"
-  },
-  "v3": {
-    "title": "Генерация списка UUID 3й версии",
-    "label":  "Результат"
-  },
-  "v1": {
-    "title": "Генерация списка UUID 1й версии",
-    "label":  "Результат"
-  }
+    "home:title": "UUID list generation",
+    "home:label": "Result",
+    "v4:title": "UUID list generation 4th version",
+    "v4:label":  "Result",
+    "v5:title": "UUID list generation 5th version",
+    "v5:label":  "Result",
+    "v3:title": "UUID list generation 3rd version",
+    "v3:label":  "Result",
+    "v1:title": "UUID list generation 1st version",
+    "v1:label":  "Result",
+    "input:label": "Number",
+    "input:placeholder": "Enter the number",
+    "textarea:label": "UUID list"
 }

@@ -1,12 +1,6 @@
 {
-  "v5": {
-    "label": "Пространство имен",
-    "placeholder": "Введите пространство имен",
-    "description": "Для генерации уникального UUID 5й версии необходимо указать namespace (пространство имен)."
-  },
-  "v3": {
-    "label": "Пространство имен",
-    "placeholder": "Введите пространство имен",
-    "description": "Для генерации уникального UUID 3й версии необходимо указать namespace (пространство имен)."
-  }
+    "input:label": "Namespace",
+    "input:placeholder": "Enter namespace",
+    "v5:description": "To generate a unique UUID 5th version, you must specify a namespace.",
+    "v3:description": "To generate a unique UUID 3rd version, you must specify a namespace."
 }

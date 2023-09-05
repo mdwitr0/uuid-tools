@@ -1,4 +1,4 @@
 {
-  "copyTemplate": "© %s — сервис для генерации UUID",
-  "disclaimer": "Наш сервис не дает гарантий, что представленный UUID является уникальным и не был использован ранее. Мы не несем ответственности за любые убытки, прямые или косвенные, связанные с использованием нашего сервиса."
+    "copyTemplate": "© %s — UUID generator",
+    "disclaimer": "Our service does not give any guarantees that the presented UUID is unique and has not been used before. We are not responsible for any losses, direct or indirect, associated with the use of our service."
 }
