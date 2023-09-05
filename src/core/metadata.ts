@@ -75,8 +75,8 @@ export async function getMetadataByLocaleAndVersion({ locale, version }: { local
 				type: 'website',
 				locale: locale,
 				url: DOMAIN,
-				title: metadata['og']['title'],
-				description: metadata['og']['description'],
+				title: metadata['og:title'],
+				description: metadata['og:description'],
 				images: socialsImages,
 			},
 			alternates: {
@@ -97,8 +97,8 @@ export async function getMetadataByLocaleAndVersion({ locale, version }: { local
 			type: 'website',
 			locale: locale,
 			url: DOMAIN,
-			title: metadata['og']['titleTemplate'].replace('%s', version),
-			description: metadata['og']['descriptionTemplate'].replace('%s', version),
+			title: metadata['og:titleTemplate'].replace('%s', version),
+			description: metadata['og:descriptionTemplate'].replace('%s', version),
 			images: socialsImages,
 		},
 		alternates: {

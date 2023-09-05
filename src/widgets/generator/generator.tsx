@@ -5,6 +5,7 @@ import { IconCopy, IconRefresh } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import { generateUuidByVersion, UUIDVersion } from '@/shared/libs/uuid/uuid';
 import { DEFAULT_UUID_NAMESPACE } from '@/core/configs';
+import { useTranslations } from 'use-intl';
 
 const useStyles = createStyles(theme => ({
 	main: {
@@ -100,6 +101,11 @@ type GeneratorProps = {
 };
 
 export function Generator({ uuid: startUuid, version }: GeneratorProps) {
+	const generatorTranslate = useTranslations('generator');
+	const bulkGeneratorTranslate = useTranslations('bulk-generator');
+	const buttonsTranslate = useTranslations('buttons');
+	const namespaceTranslate = useTranslations('namespace-form');
+
 	const { classes, theme } = useStyles();
 	const [uuid, setUUID] = useState<string>(startUuid);
 
@@ -127,69 +133,70 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 		newUUID();
 	}, [namespace]);
 
-	const namespaceForm = (
-		<Container py="xl" className={classes.inputWrapper}>
-			<TextInput
-				label="Namespace"
-				placeholder="Введите namespace"
-				classNames={classes}
-				value={namespace}
-				onChange={event => setNamespace(event.currentTarget.value)}
-			/>
-			<Text size="sm" py="sm">
-				Для корректной генерации UUID 3 и 5 версий введите namespace
-			</Text>
-		</Container>
-	);
-
-	const listGenerator = (
-		<Card shadow="md" radius="md" className={classes.card} padding="xl">
-			<Title order={2} ta="center">
-				Генерация списка UUID {version}
-			</Title>
-			<Group align="center" position="center" py="xl">
-				<NumberInput
-					placeholder="Введите количество"
-					label="Количество"
-					min={1}
-					max={1000}
-					defaultValue={size}
-					classNames={classes}
-					onChange={value => setSize(value || 1)}
-				/>
-				<Button leftIcon={<IconRefresh />} onClick={newUUIDList}>
-					Сгенерировать
-				</Button>
-			</Group>
-			<Container py="xl" className={classes.inputWrapper}>
-				<JsonInput label="Ваш список UUID" formatOnBlur autosize minRows={4} value={JSON.stringify(uuidList, null, 2)} />
-			</Container>
-		</Card>
-	);
-
 	return (
 		<main className={classes.main}>
 			<Container size="xl" py="xl">
 				<Title order={1} className={classes.title} ta="center">
-					Онлайн генератор уникального UUID {version == 'empty' ? 'заглушки' : version}
+					{generatorTranslate(`${version}:title`)}
 				</Title>
 
 				<Card shadow="md" radius="md" className={classes.card} padding="xl" mb="xl">
 					<Text className={classes.uuid}>{uuid}</Text>
 					<Group align="center" position="center">
 						<Button leftIcon={<IconCopy />} onClick={copyUUIDtoClipboard}>
-							Скопировать
+							{buttonsTranslate('copy')}
 						</Button>
 
 						<Button leftIcon={<IconRefresh />} onClick={newUUID}>
-							Изменить
+							{buttonsTranslate('refresh')}
 						</Button>
 					</Group>
-
-					{version === 'v3' || version === 'v5' ? namespaceForm : null}
+					{version === 'v3' || version === 'v5' ? (
+						<Container py="xl" className={classes.inputWrapper}>
+							<TextInput
+								label={namespaceTranslate('input:label')}
+								placeholder={namespaceTranslate('input:placeholder')}
+								classNames={classes}
+								value={namespace}
+								onChange={event => setNamespace(event.currentTarget.value)}
+							/>
+							<Text size="sm" py="sm">
+								{namespaceTranslate(`${version}:description`)}
+							</Text>
+						</Container>
+					) : null}
 				</Card>
 
-				{version === 'v1' || version === 'v4' ? listGenerator : null}
+				{version === 'v1' || version === 'v4' ? (
+					<Card shadow="md" radius="md" className={classes.card} padding="xl">
+						<Title order={2} ta="center">
+							{bulkGeneratorTranslate(`${version}:title`)}
+						</Title>
+						<Group align="center" position="center" py="xl">
+							<NumberInput
+								placeholder={bulkGeneratorTranslate(`input:placeholder`)}
+								label={bulkGeneratorTranslate(`input:label`)}
+								min={1}
+								max={1000}
+								defaultValue={size}
+								classNames={classes}
+								onChange={value => setSize(value || 1)}
+							/>
+							<Button leftIcon={<IconRefresh />} onClick={newUUIDList}>
+								{buttonsTranslate('generate')}
+							</Button>
+						</Group>
+						<Container py="xl" className={classes.inputWrapper}>
+							<JsonInput
+								label={bulkGeneratorTranslate('textarea:label')}
+								formatOnBlur
+								autosize
+								minRows={4}
+								value={JSON.stringify(uuidList, null, 2)}
+							/>
+						</Container>
+					</Card>
+				) : null}
 			</Container>
 		</main>
 	);
