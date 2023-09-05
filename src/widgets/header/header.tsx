@@ -6,6 +6,7 @@ import { uuidList, UUIDVersion } from '@/shared/libs/uuid/uuid';
 import Link from 'next/link';
 import Logo from '@/features/logo/logo';
 import { ColorSchemeToggle } from '@/features/color-scheme-toogle/color-scheme-toggle';
+import { useTranslations } from 'use-intl';
 
 const useStyles = createStyles(theme => ({
 	inner: {
@@ -20,8 +21,6 @@ const useStyles = createStyles(theme => ({
 	},
 
 	links: {
-		width: rem(260),
-
 		[theme.fn.smallerThan('sm')]: {
 			display: 'none',
 		},
@@ -53,7 +52,7 @@ const useStyles = createStyles(theme => ({
 		color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
 		fontSize: theme.fontSizes.sm,
 		fontWeight: 500,
-
+		cursor: 'pointer',
 		'&:hover': {
 			backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
 		},
@@ -76,15 +75,23 @@ type HeaderMiddleProps = {
 	version: UUIDVersion;
 };
 export function HeaderMiddle({ version }: HeaderMiddleProps) {
-	const links = uuidList.map(link => ({ link: '/' + link, label: link }));
+	const linksTranslate = useTranslations('links');
+	const headerTranslate = useTranslations('header');
+
+	const links = uuidList.map(link => ({ link: linksTranslate(`${link}:href`), label: linksTranslate(`${link}:label`) }));
 
 	const [opened, { close, open, toggle }] = useDisclosure(false);
 
 	const { classes, cx } = useStyles();
 
-	const pages = links.map(link => (
-		<Link key={link.label} href={link.link} className={cx(classes.link, { [classes.linkActive]: '/' + version === link.link })}>
-			{link.label}
+	const pages = uuidList.map(id => (
+		<Link
+			key={id}
+			href={linksTranslate(`${id}:href`)}
+			title={linksTranslate(`${id}:title`)}
+			className={cx(classes.link, { [classes.linkActive]: linksTranslate(`${version}:href`) === linksTranslate(`${id}:href`) })}
+		>
+			{linksTranslate(`${id}:label`)}
 		</Link>
 	));
 
@@ -92,7 +99,15 @@ export function HeaderMiddle({ version }: HeaderMiddleProps) {
 		<Header height={56}>
 			<Container className={classes.inner}>
 				<Burger opened={opened} onClick={open} size="sm" className={classes.burger} />
-				<Drawer opened={opened} onClose={close} size="100%" padding="md" title="Меню" className={classes.hiddenDesktop} zIndex={1000000}>
+				<Drawer
+					opened={opened}
+					onClose={close}
+					size="100%"
+					padding="md"
+					title={headerTranslate('menu:title')}
+					className={classes.hiddenDesktop}
+					zIndex={1000000}
+				>
 					{pages}
 				</Drawer>
 				<Group className={classes.links} spacing={5}>
