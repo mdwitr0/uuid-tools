@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const NextSitemapConfig = {
-	siteUrl: 'https://uuid.tools',
+	siteUrl: 'https://www.uuid.tools',
 	generateRobotsTxt: true,
 	additionalPaths: async config => {
 		const result = [];
