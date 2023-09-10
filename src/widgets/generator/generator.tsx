@@ -132,7 +132,7 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 	useEffect(() => {
 		newUUID();
 	}, [namespace]);
-
+	console.log(version);
 	return (
 		<main className={classes.main}>
 			<Container size="xl" py="xl">
@@ -146,12 +146,13 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 						<Button leftIcon={<IconCopy />} onClick={copyUUIDtoClipboard}>
 							{buttonsTranslate('copy')}
 						</Button>
-
-						<Button leftIcon={<IconRefresh />} onClick={newUUID}>
-							{buttonsTranslate('refresh')}
-						</Button>
+						{['v1', 'v4'].find(v => v === version || !version) ? (
+							<Button leftIcon={<IconRefresh />} onClick={newUUID}>
+								{buttonsTranslate('refresh')}
+							</Button>
+						) : null}
 					</Group>
-					{version === 'v3' || version === 'v5' ? (
+					{['v3', 'v5'].includes(version || 'v4') ? (
 						<Container py="xl" className={classes.inputWrapper}>
 							<TextInput
 								label={namespaceTranslate('input:label')}
