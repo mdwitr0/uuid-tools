@@ -137,11 +137,10 @@ export function HeaderMiddle({ version, locale }: HeaderMiddleProps) {
 				>
 					{pages}
 				</Drawer>
+				<Logo></Logo>
 				<Group className={classes.links} spacing={5}>
 					{pages}
 				</Group>
-
-				<Logo></Logo>
 
 				<Group spacing={5} className={classes.social} position="right" noWrap>
 					<Group spacing={5} className={classes.social} position="left" noWrap>
