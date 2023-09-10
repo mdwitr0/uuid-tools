@@ -110,12 +110,10 @@ export function HeaderMiddle({ version, locale }: HeaderMiddleProps) {
 		)),
 	];
 
-	console.log('version', version);
-
 	const locales = (
 		<Box className={classes.locales}>
 			{LOCALES.map(l => (
-				<Link href={`/${l}`} lang={locale} className={cx(classes.link, { [classes.linkActive]: locale === l })}>
+				<Link key={l} href={`/${l}`} lang={locale} className={cx(classes.link, { [classes.linkActive]: locale === l })}>
 					{l.toUpperCase()}
 				</Link>
 			))}
@@ -143,10 +141,8 @@ export function HeaderMiddle({ version, locale }: HeaderMiddleProps) {
 				</Group>
 
 				<Group spacing={5} className={classes.social} position="right" noWrap>
-					<Group spacing={5} className={classes.social} position="left" noWrap>
-						{locales}
-						<ColorSchemeToggle />
-					</Group>
+					{locales}
+					<ColorSchemeToggle />
 				</Group>
 			</Container>
 		</Header>

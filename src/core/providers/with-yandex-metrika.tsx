@@ -14,7 +14,6 @@ const WithYandexMetrika = (props: WithYandexMetrikaProps) => {
 	const { children } = props;
 
 	const hit = useCallback(url => {
-		console.log('hit', url);
 		ym('hit', url);
 	}, []);
 

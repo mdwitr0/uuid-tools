@@ -132,7 +132,6 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 	useEffect(() => {
 		newUUID();
 	}, [namespace]);
-	console.log(version);
 	return (
 		<main className={classes.main}>
 			<Container size="xl" py="xl">
