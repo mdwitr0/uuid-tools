@@ -1,0 +1,20 @@
+{
+	"home:label": "主页",
+	"home:title": "UUID生成器",
+	"home:href": "/zh",
+	"v4:label": "V4",
+	"v4:title": "UUID版本4生成器",
+	"v4:href": "/zh/version/v4",
+	"v5:label": "V5",
+	"v5:href": "/zh/version/v5",
+	"v5:title": "UUID版本5生成器",
+	"v3:label": "V3",
+	"v3:title": "UUID版本3生成器",
+	"v3:href": "/zh/version/v3",
+	"v1:label": "V1",
+	"v1:title": "UUID版本1生成器",
+	"v1:href": "/zh/version/v1",
+	"empty:label": "空",
+	"empty:title": "空UUID生成器",
+	"empty:href": "/zh/version/empty"
+}

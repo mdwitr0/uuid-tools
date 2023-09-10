@@ -1,0 +1,12 @@
+{
+	"title": "在线UUID生成器",
+	"titleTemplate": "在线UUID生成器版本%s",
+	"description": "用于创建一个或多个UUID 1,3,4,5版本的服务",
+	"descriptionTemplate": "用于创建一个或多个UUID %s版本的服务",
+	"keywords": "uuid, uuid生成器, 在线uuid生成器, uuid生成器, uuid在线, uuid v1, uuid v3, uuid v4, uuid v5",
+	"keywordsTemplate": "uuid生成器%s, 在线uuid生成器%s, uuid%s",
+	"og:title": "在线UUID生成器",
+	"og:titleTemplate": "在线UUID生成器版本%s",
+	"og:description": "用于创建一个或多个UUID 1,3,4,5版本的服务",
+	"og:descriptionTemplate": "用于创建一个或多个UUID %s版本的服务"
+}

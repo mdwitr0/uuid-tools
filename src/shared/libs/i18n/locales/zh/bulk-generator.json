@@ -1,0 +1,15 @@
+{
+		"home:title": "UUID列表生成",
+		"home:label": "结果",
+		"v4:title": "UUID列表生成第四版",
+		"v4:label":  "结果",
+		"v5:title": "UUID列表生成第五版",
+		"v5:label":  "结果",
+		"v3:title": "UUID列表生成第三版",
+		"v3:label":  "结果",
+		"v1:title": "UUID列表生成第一版",
+		"v1:label":  "结果",
+		"input:label": "数量",
+		"input:placeholder": "请输入数量",
+		"textarea:label": "UUID列表"
+}

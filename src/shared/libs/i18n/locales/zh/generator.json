@@ -1,0 +1,11 @@
+{
+		"home:title": "在线UUID生成器",
+		"v4:title": "在线UUID生成器 v4",
+		"v5:title": "在线UUID生成器 v5",
+		"v5:desc": "版本5 UUID是伪随机的。",
+		"v3:title": "在线UUID生成器 v3",
+		"v1:title": "在线UUID生成器 v1",
+		"empty:title": "空UUID",
+		"empty:desc": "空UUID是UUID的一种特殊形式，其所有128位都设置为零。",
+		"input:label": "UUID列表"
+}

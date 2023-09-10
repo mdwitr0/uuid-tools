@@ -15,7 +15,7 @@ export const SOCIALS = [
 
 export const YANDEX_METRIKA_ID = 94820522;
 
-export const LOCALES = ['ru', 'en'];
+export const LOCALES = ['ru', 'en', 'zh'];
 export const DEFAULT_LOCALE = 'en';
 
 export const LOCALE_NAMESPACES = [

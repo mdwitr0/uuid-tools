@@ -1,0 +1,6 @@
+{
+	"input:label": "命名空间",
+	"input:placeholder": "输入命名空间",
+	"v5:description": "要生成唯一的UUID 5版本，必须指定一个命名空间。",
+	"v3:description": "要生成唯一的UUID 3版本，必须指定一个命名空间。"
+}
