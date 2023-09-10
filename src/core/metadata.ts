@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { DEFAULT_LOCALE, DOMAIN } from '@/core/configs';
-import { getTranslationJson } from '@/shared/libs/i18b/get-translation-json';
+import { getTranslationJson } from '@/shared/libs/i18n/get-translation-json';
 
 export const socialsImages = [
 	{
@@ -92,15 +92,15 @@ export async function getMetadataByLocaleAndVersion({ locale, version }: { local
 
 	return {
 		...defaultMetadata,
-		title: metadata['titleTemplate'].replace('%s', version),
-		description: metadata['descriptionTemplate'].replace('%s', version),
-		keywords: metadata['keywordsTemplate'].replace('%s', version),
+		title: metadata['titleTemplate'].replaceAll('%s', version),
+		description: metadata['descriptionTemplate'].replaceAll('%s', version),
+		keywords: metadata['keywordsTemplate'].replaceAll('%s', version),
 		openGraph: {
 			type: 'website',
 			locale: locale,
 			url: DOMAIN,
-			title: metadata['og:titleTemplate'].replace('%s', version),
-			description: metadata['og:descriptionTemplate'].replace('%s', version),
+			title: metadata['og:titleTemplate'].replaceAll('%s', version),
+			description: metadata['og:descriptionTemplate'].replaceAll('%s', version),
 			images: socialsImages,
 		},
 		alternates: {
