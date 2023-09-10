@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 
 import { NextIntlClientProvider } from 'next-intl';
 import { LOCALE_NAMESPACES } from '@/core/configs';
-import { getTranslationJson, NsType } from '@/shared/libs/i18b/get-translation-json';
+import { getTranslationJson, NsType } from '@/shared/libs/i18n/get-translation-json';
 
 const withIntl = async ({
 	children, // will be a page or nested layout
