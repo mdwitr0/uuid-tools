@@ -97,7 +97,7 @@ const useStyles = createStyles(theme => ({
 
 type GeneratorProps = {
 	uuid: string;
-	version: UUIDVersion;
+	version?: UUIDVersion;
 };
 
 export function Generator({ uuid: startUuid, version }: GeneratorProps) {
@@ -122,11 +122,11 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 	};
 
 	const newUUID = () => {
-		setUUID(generateUuidByVersion(version, namespace));
+		setUUID(generateUuidByVersion(version || 'v4', namespace));
 	};
 
 	const newUUIDList = () => {
-		setUUIDList(Array.from({ length: size }, () => generateUuidByVersion(version, namespace)));
+		setUUIDList(Array.from({ length: size }, () => generateUuidByVersion(version || 'v4', namespace)));
 	};
 
 	useEffect(() => {
@@ -137,7 +137,7 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 		<main className={classes.main}>
 			<Container size="xl" py="xl">
 				<Title order={1} className={classes.title} ta="center">
-					{generatorTranslate(`${version}:title`)}
+					{generatorTranslate(`${version || 'home'}:title`)}
 				</Title>
 
 				<Card shadow="md" radius="md" className={classes.card} padding="xl" mb="xl">
@@ -167,10 +167,10 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 					) : null}
 				</Card>
 
-				{version === 'v1' || version === 'v4' ? (
+				{['v1', 'v4'].includes(version || 'v4') ? (
 					<Card shadow="md" radius="md" className={classes.card} padding="xl">
 						<Title order={2} ta="center">
-							{bulkGeneratorTranslate(`${version}:title`)}
+							{bulkGeneratorTranslate(`${version || 'home'}:title`)}
 						</Title>
 						<Group align="center" position="center" py="xl">
 							<NumberInput
