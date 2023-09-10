@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default function Page({ params }: PageProps) {
 	return (
 		<>
-			<HeaderMiddle version={DEFAULT_UUID_VERSION} locale={params.locale} />
+			<HeaderMiddle locale={params.locale} />
 			<Generator uuid={generateUuidByVersion(DEFAULT_UUID_VERSION, DEFAULT_UUID_NAMESPACE)} version={DEFAULT_UUID_VERSION} />
 			<FooterMiddle />
 		</>

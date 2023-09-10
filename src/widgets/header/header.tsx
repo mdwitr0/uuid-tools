@@ -77,29 +77,39 @@ const useStyles = createStyles(theme => ({
 }));
 
 type HeaderMiddleProps = {
-	version: UUIDVersion;
+	version?: UUIDVersion;
 	locale: string;
 };
 export function HeaderMiddle({ version, locale }: HeaderMiddleProps) {
 	const linksTranslate = useTranslations('links');
 	const headerTranslate = useTranslations('header');
 
-	const links = uuidList.map(link => ({ link: linksTranslate(`${link}:href`), label: linksTranslate(`${link}:label`) }));
-
 	const [opened, { close, open, toggle }] = useDisclosure(false);
 
 	const { classes, cx } = useStyles();
 
-	const pages = uuidList.map(id => (
+	const pages = [
 		<Link
-			key={id}
-			href={linksTranslate(`${id}:href`)}
-			title={linksTranslate(`${id}:title`)}
-			className={cx(classes.link, { [classes.linkActive]: linksTranslate(`${version}:href`) === linksTranslate(`${id}:href`) })}
+			key="home"
+			href={linksTranslate(`home:href`)}
+			title={linksTranslate(`home:title`)}
+			className={cx(classes.link, { [classes.linkActive]: !version })}
 		>
-			{linksTranslate(`${id}:label`)}
-		</Link>
-	));
+			{linksTranslate(`home:label`)}
+		</Link>,
+		...uuidList.map(id => (
+			<Link
+				key={id}
+				href={linksTranslate(`${id}:href`)}
+				title={linksTranslate(`${id}:title`)}
+				className={cx(classes.link, { [classes.linkActive]: version === id })}
+			>
+				{linksTranslate(`${id}:label`)}
+			</Link>
+		)),
+	];
+
+	console.log('version', version);
 
 	const locales = (
 		<Box className={classes.locales}>

@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { ReactNode } from 'react';
 import { AppProvider } from '@/core/provider';
 import { LOCALES } from '@/core/configs';
-import { getTranslationJson } from '@/shared/libs/i18b/get-translation-json';
+import { getTranslationJson } from '@/shared/libs/i18n/get-translation-json';
 
 const inter = Inter({ subsets: ['latin'] });
 
