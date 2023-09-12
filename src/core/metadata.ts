@@ -84,6 +84,7 @@ export async function getMetadataByLocaleAndVersion({ locale, version }: { local
 				canonical: `/`,
 				languages: {
 					ru: `/ru`,
+					zh: `/zh`,
 					'x-default': '/',
 				},
 			},
