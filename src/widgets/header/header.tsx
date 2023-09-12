@@ -3,7 +3,7 @@
 import { Box, Burger, Container, createStyles, Drawer, Group, Header, rem } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { uuidList, UUIDVersion } from '@/shared/libs/uuid/uuid';
-import Link from 'next/link';
+import a from 'next/link';
 import Logo from '@/features/logo/logo';
 import { ColorSchemeToggle } from '@/features/color-scheme-toogle/color-scheme-toggle';
 import { useTranslations } from 'use-intl';
@@ -90,32 +90,32 @@ export function HeaderMiddle({ version, locale }: HeaderMiddleProps) {
 	const { classes, cx } = useStyles();
 
 	const pages = [
-		<Link
+		<a
 			key="home"
 			href={linksTranslate(`home:href`)}
 			title={linksTranslate(`home:title`)}
 			className={cx(classes.link, { [classes.linkActive]: !version })}
 		>
 			{linksTranslate(`home:label`)}
-		</Link>,
+		</a>,
 		...uuidList.map(id => (
-			<Link
+			<a
 				key={id}
 				href={linksTranslate(`${id}:href`)}
 				title={linksTranslate(`${id}:title`)}
 				className={cx(classes.link, { [classes.linkActive]: version === id })}
 			>
 				{linksTranslate(`${id}:label`)}
-			</Link>
+			</a>
 		)),
 	];
 
 	const locales = (
 		<Box className={classes.locales}>
 			{LOCALES.map(l => (
-				<Link key={l} href={`/${l}`} lang={locale} className={cx(classes.link, { [classes.linkActive]: locale === l })}>
+				<a key={l} href={`/${l}`} lang={locale} className={cx(classes.link, { [classes.linkActive]: locale === l })}>
 					{l.toUpperCase()}
-				</Link>
+				</a>
 			))}
 		</Box>
 	);
