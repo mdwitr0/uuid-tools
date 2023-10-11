@@ -7,7 +7,7 @@ import a from 'next/link';
 import Logo from '@/features/logo/logo';
 import { ColorSchemeToggle } from '@/features/color-scheme-toogle/color-scheme-toggle';
 import { useTranslations } from 'use-intl';
-import { LOCALES } from '@/core/configs';
+import { LOCALES_OBJ } from '@/core/configs';
 
 const useStyles = createStyles(theme => ({
 	inner: {
@@ -112,9 +112,9 @@ export function HeaderMiddle({ version, locale }: HeaderMiddleProps) {
 
 	const locales = (
 		<Box className={classes.locales}>
-			{LOCALES.map(l => (
-				<a key={l} href={`/${l}`} lang={locale} className={cx(classes.link, { [classes.linkActive]: locale === l })}>
-					{l.toUpperCase()}
+			{LOCALES_OBJ.map(l => (
+				<a key={l.code} href={`/${l.code}`} lang={locale} className={cx(classes.link, { [classes.linkActive]: locale === l.code })}>
+					{l.name}
 				</a>
 			))}
 		</Box>
