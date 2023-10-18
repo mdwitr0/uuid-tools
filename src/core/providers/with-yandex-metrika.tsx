@@ -24,7 +24,15 @@ const WithYandexMetrika = (props: WithYandexMetrikaProps) => {
 
 	return (
 		<>
-			<YMInitializer accounts={[YANDEX_METRIKA_ID]} options={{ webvisor: true, defer: true }} version="2" />
+			<YMInitializer
+				accounts={[YANDEX_METRIKA_ID]}
+				options={{
+					clickmap: true,
+					trackLinks: true,
+					accurateTrackBounce: true,
+					webvisor: true,
+				}}
+			/>
 			{children}
 		</>
 	);
