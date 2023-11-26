@@ -51,7 +51,7 @@ export const defaultMetadata: Metadata = {
 		type: 'website',
 		locale: 'en',
 		url: DOMAIN,
-		title: 'Онлайн генератор уникальных UUID',
+		title: 'Онлайн генератор UUID',
 		description: 'Мгновенная генерация UUID версий: v1, v3, v4, v5',
 		images: socialsImages,
 	},

@@ -1,0 +1,9 @@
+
+{
+  "howTitle": "什么是UUID？",
+	"howText": "这是一种用于网站，移动应用程序和其他软件的标识标准。 UUID可用于分布式计算环境，而无需协调中心。 UUID生成算法保证不会为其他记录重新生成此标识符。",
+	"standardTitle": "标准和文档",
+	"standardText": "它最初记录在ISO / IEC 11578：1996中。稍后，该标准进行了修订，并包含在ITU-T Rec. X.667和ISO / IEC 9834-8：2008中。这些文件扩展了原始标准并描述了应用程序的变体和技术实现。 RFC 4122于2005年发布，描述了在Internet中使用UUID。",
+	"formatTitle": "生成格式",
+	"formatText": "这是一个16字节（128位）数字，用十六进制表示。 uuid模式由5个组组成，用连字符分隔`8-4-4-4-12`，其表示占用36个字符`xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx`。其中4位`M`的位表示标识符的版本。 1-3个高位N位表示UUID的变体。"
+}

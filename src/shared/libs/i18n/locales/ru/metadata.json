@@ -1,8 +1,8 @@
 {
-  "title": "Онлайн генератор уникального идентификатора UUID",
-  "titleTemplate": "Онлайн генератор UUID версии %s",
-  "description": "Сервис для создания одного или множества UUID 1,3,4,5 версии онлайн",
-  "descriptionTemplate": "Сервис для создания одного или множества UUID %s версии онлайн",
+  "title": "Генератор UUID онлайн | UUID.TOOLS",
+  "titleTemplate": "Онлайн генератор UUID %s",
+  "description": "Быстрый и простой генератор UUID(universally unique identifier). Выбирайте версию v1, v3, v4 или v5 и получайте UUID сразу же онлайн. Для вас есть возможность сгенерировать один или сразу список UUIDs.",
+  "descriptionTemplate": "Онлайн сервис для генерации UUID %s версии",
   "keywords": "uuid, генератор uuid, онлайн генератор uuid, uuid генератор, uuid онлайн, uuid v1, uuid v3, uuid v4, uuid v5",
   "keywordsTemplate": "генератор uuid %s, онлайн генератор uuid %s, uuid %s",
   "og:title": "Онлайн генератор UUID",

@@ -32,4 +32,5 @@ export const LOCALE_NAMESPACES = [
 	'bulk-generator',
 	'links',
 	'namespace-form',
+	'info',
 ] as const;

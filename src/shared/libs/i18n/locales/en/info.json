@@ -1,0 +1,8 @@
+{
+  "howTitle": "What is UUID?",
+	"howText": "This is an identification standard that is used on websites, mobile applications and other software. UUID can be used in distributed computing environments without a single coordination center. The uuid generation algorithm guarantees that this identifier will not be generated again for another record.",
+	"standardTitle": "Standards and documentation",
+	"standardText": "It was originally documented in ISO/IEC 11578:1996. Later, the standard was revised and included in ITU-T Rec. X.667 and ISO/IEC 9834-8:2008. These documents extend the original standard and describe the options for use and technical implementation. And in 2005, RFC 4122 was already published, which describes the use of UUID on the Internet.",
+	"formatTitle": "Generation format",
+	"formatText": "This is a 16-byte (128-bit) number represented as a number in hexadecimal. The pattern of the uuid itself consists of 5 groups separated by hyphens `8-4-4-4-12` representation of which takes 36 characters `xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx`. In it, 4 bits `M` mean the version of the identifier. 1-3 most significant bits N denote the UUID variant."
+}

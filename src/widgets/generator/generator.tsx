@@ -12,14 +12,14 @@ const useStyles = createStyles(theme => ({
 		paddingTop: rem(120),
 
 		minHeight: '83vh',
-		backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
+		backgroundColor: theme.colors.gray[0],
 	},
 
 	title: {
 		fontSize: rem(34),
 		fontWeight: 900,
 		marginBottom: theme.spacing.xl,
-		color: theme.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.dark[7],
+		color: theme.colors.dark[7],
 
 		[theme.fn.smallerThan('sm')]: {
 			fontSize: rem(24),
@@ -133,71 +133,69 @@ export function Generator({ uuid: startUuid, version }: GeneratorProps) {
 		newUUID();
 	}, [namespace]);
 	return (
-		<main className={classes.main}>
-			<Container size="xl" py="xl">
-				<Title order={1} className={classes.title} ta="center">
-					{generatorTranslate(`${version || 'home'}:title`)}
-				</Title>
+		<Container size="xl" py="xl">
+			<Title order={1} className={classes.title} ta="center">
+				{generatorTranslate(`${version || 'home'}:title`)}
+			</Title>
 
-				<Card shadow="md" radius="md" className={classes.card} padding="xl" mb="xl">
-					<Text className={classes.uuid}>{uuid}</Text>
-					<Group align="center" position="center">
-						<Button leftIcon={<IconCopy />} onClick={copyUUIDtoClipboard}>
-							{buttonsTranslate('copy')}
+			<Card shadow="md" radius="md" className={classes.card} padding="xl" mb="xl">
+				<Text className={classes.uuid}>{uuid}</Text>
+				<Group align="center" position="center">
+					<Button leftIcon={<IconCopy />} onClick={copyUUIDtoClipboard}>
+						{buttonsTranslate('copy')}
+					</Button>
+					{['v1', 'v4'].find(v => v === version || !version) ? (
+						<Button leftIcon={<IconRefresh />} onClick={newUUID}>
+							{buttonsTranslate('refresh')}
 						</Button>
-						{['v1', 'v4'].find(v => v === version || !version) ? (
-							<Button leftIcon={<IconRefresh />} onClick={newUUID}>
-								{buttonsTranslate('refresh')}
-							</Button>
-						) : null}
-					</Group>
-					{['v3', 'v5'].includes(version || 'v4') ? (
-						<Container py="xl" className={classes.inputWrapper}>
-							<TextInput
-								label={namespaceTranslate('input:label')}
-								placeholder={namespaceTranslate('input:placeholder')}
-								classNames={classes}
-								value={namespace}
-								onChange={event => setNamespace(event.currentTarget.value)}
-							/>
-							<Text size="sm" py="sm">
-								{namespaceTranslate(`${version}:description`)}
-							</Text>
-						</Container>
 					) : null}
-				</Card>
-
-				{['v1', 'v4'].includes(version || 'v4') ? (
-					<Card shadow="md" radius="md" className={classes.card} padding="xl">
-						<Title order={2} ta="center">
-							{bulkGeneratorTranslate(`${version || 'home'}:title`)}
-						</Title>
-						<Group align="center" position="center" py="xl">
-							<NumberInput
-								placeholder={bulkGeneratorTranslate(`input:placeholder`)}
-								label={bulkGeneratorTranslate(`input:label`)}
-								min={1}
-								max={1000}
-								defaultValue={size}
-								classNames={classes}
-								onChange={value => setSize(value || 1)}
-							/>
-							<Button leftIcon={<IconRefresh />} onClick={newUUIDList}>
-								{buttonsTranslate('generate')}
-							</Button>
-						</Group>
-						<Container py="xl" className={classes.inputWrapper}>
-							<JsonInput
-								label={bulkGeneratorTranslate('textarea:label')}
-								formatOnBlur
-								autosize
-								minRows={4}
-								value={JSON.stringify(uuidList, null, 2)}
-							/>
-						</Container>
-					</Card>
+				</Group>
+				{['v3', 'v5'].includes(version || 'v4') ? (
+					<Container py="xl" className={classes.inputWrapper}>
+						<TextInput
+							label={namespaceTranslate('input:label')}
+							placeholder={namespaceTranslate('input:placeholder')}
+							classNames={classes}
+							value={namespace}
+							onChange={event => setNamespace(event.currentTarget.value)}
+						/>
+						<Text size="sm" py="sm">
+							{namespaceTranslate(`${version}:description`)}
+						</Text>
+					</Container>
 				) : null}
-			</Container>
-		</main>
+			</Card>
+
+			{['v1', 'v4'].includes(version || 'v4') ? (
+				<Card shadow="md" radius="md" className={classes.card} padding="xl">
+					<Title order={2} ta="center">
+						{bulkGeneratorTranslate(`${version || 'home'}:title`)}
+					</Title>
+					<Group align="center" position="center" py="xl">
+						<NumberInput
+							placeholder={bulkGeneratorTranslate(`input:placeholder`)}
+							label={bulkGeneratorTranslate(`input:label`)}
+							min={1}
+							max={1000}
+							defaultValue={size}
+							classNames={classes}
+							onChange={value => setSize(value || 1)}
+						/>
+						<Button leftIcon={<IconRefresh />} onClick={newUUIDList}>
+							{buttonsTranslate('generate')}
+						</Button>
+					</Group>
+					<Container py="xl" className={classes.inputWrapper}>
+						<JsonInput
+							label={bulkGeneratorTranslate('textarea:label')}
+							formatOnBlur
+							autosize
+							minRows={4}
+							value={JSON.stringify(uuidList, null, 2)}
+						/>
+					</Container>
+				</Card>
+			) : null}
+		</Container>
 	);
 }
