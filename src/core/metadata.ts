@@ -69,7 +69,7 @@ export async function getMetadataByLocaleAndVersion({ locale, version }: { local
 	if (!version) {
 		return {
 			...defaultMetadata,
-			title: metadata['title'],
+			title: `🌈 ${metadata['title']}`,
 			description: metadata['description'],
 			keywords: metadata['keywords'],
 			openGraph: {
@@ -93,7 +93,7 @@ export async function getMetadataByLocaleAndVersion({ locale, version }: { local
 
 	return {
 		...defaultMetadata,
-		title: metadata['titleTemplate'].replaceAll('%s', version),
+		title: `🌈 ${metadata['titleTemplate'].replaceAll('%s', version)}`,
 		description: metadata['descriptionTemplate'].replaceAll('%s', version),
 		keywords: metadata['keywordsTemplate'].replaceAll('%s', version),
 		openGraph: {
