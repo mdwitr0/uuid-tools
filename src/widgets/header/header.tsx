@@ -5,7 +5,6 @@ import { useDisclosure } from '@mantine/hooks';
 import { uuidList, UUIDVersion } from '@/shared/libs/uuid/uuid';
 import a from 'next/link';
 import Logo from '@/features/logo/logo';
-import { ColorSchemeToggle } from '@/features/color-scheme-toogle/color-scheme-toggle';
 import { useTranslations } from 'use-intl';
 import { LOCALES_OBJ } from '@/core/configs';
 
@@ -142,7 +141,6 @@ export function HeaderMiddle({ version, locale }: HeaderMiddleProps) {
 
 				<Group spacing={5} className={classes.social} position="right" noWrap>
 					{locales}
-					<ColorSchemeToggle />
 				</Group>
 			</Container>
 		</Header>
